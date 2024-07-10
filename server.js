@@ -1,7 +1,7 @@
 const express = require("express"); // import
 const app = express();
 const db = require("./db"); //connecting to db
-require("dotenv").config()
+require("dotenv").config();
 
 const bodyParser = require("body-parser"); //parses the information coming from http into req's body
 app.use(bodyParser.json()); //req.body
@@ -13,7 +13,7 @@ const MenuItem = require("./models/MenuItems");
 app.get("/", function (req, res) {
   res.send("welcome to my hotel how can i help you");
 });
-//////express middle ware 
+//////express middle ware
 //person's api
 //import the router file
 const personRoutes = require("./routes/personRoutes");
@@ -24,7 +24,7 @@ app.use("/person", personRoutes);
 const menuItemRouters = require("./routes/menuItemRoutes");
 app.use("/", menuItemRouters);
 
-const PORT = process.env.PORT||3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("server is running");
 }); //started server on 3000:port
